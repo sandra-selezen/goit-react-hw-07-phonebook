@@ -4,7 +4,7 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import toast from 'react-hot-toast';
 import { RiPhoneFill, RiUserFill, RiUserAddFill } from "react-icons/ri";
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 import { Form, ErrorText, FormBox, FormLabel, FormButton } from './ContactForm.styled';
 
@@ -29,7 +29,7 @@ const initialValues = {
 
 export const ContactForm = () => {
 
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const isReplicated = ({ name, phone }) => {
