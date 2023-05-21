@@ -76,3 +76,7 @@ export const ContactForm = () => {
     </Formik>
   )
 }
+
+FormError.propTypes = {
+  name: PropTypes.string,
+}
