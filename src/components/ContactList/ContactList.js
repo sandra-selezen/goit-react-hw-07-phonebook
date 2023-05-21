@@ -24,7 +24,7 @@ export const ContactList = () => {
       {displayContactlist.map(contact => (
         <Item key={contact.id}>
           <div>
-            <span>{contact.name}:</span> <span>{contact.number}</span>
+            <span>{contact.name}:</span> <span>{contact.phone}</span>
           </div>
           <div>
             <DeleteBtn title="Delete contact" aria-label='Delete contact' type="button" onClick={() => onDeleteContact(contact.id)}><RiUserUnfollowFill /></DeleteBtn>

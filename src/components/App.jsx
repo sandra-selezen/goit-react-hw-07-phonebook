@@ -14,9 +14,9 @@ export const App = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <Container>
@@ -24,7 +24,7 @@ export const App = () => {
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />
-      {/* {isLoading && !error && <b>Request in progress...</b>} */}
+      {isLoading && !error && <b>Request in progress...</b>}
       <ContactList />
       <Toaster position="top-center" />
     </Container>
