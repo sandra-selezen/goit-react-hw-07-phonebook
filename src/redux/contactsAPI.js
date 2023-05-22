@@ -7,15 +7,15 @@ export const contactsApi = createApi({
   }),
   tagTypes: ['Contacts'],
   endpoints: builder => ({
-    getMaterials: builder.query({
+    getContacts: builder.query({
       query: () => '/contacts',
       providesTags: ['Contacts'],
     }),
-    getMaterialById: builder.query({
+    getContactsById: builder.query({
       query: id => `/contacts/${id}`,
       providesTags: ['Contacts'],
     }),
-    addMaterial: builder.mutation({
+    addContacts: builder.mutation({
       query: values => ({
         url: '/contacts',
         method: 'POST',
@@ -23,14 +23,14 @@ export const contactsApi = createApi({
       }),
       invalidatesTags: ['Contacts'],
     }),
-    deleteMaterial: builder.mutation({
+    deleteContacts: builder.mutation({
       query: id => ({
         url: `/contacts/${id}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Contacts'],
     }),
-    updateMaterial: builder.mutation({
+    updateContacts: builder.mutation({
       query: fields => ({
         url: `/contacts/${fields.id}`,
         method: 'PUT',
@@ -42,8 +42,8 @@ export const contactsApi = createApi({
 });
 
 export const {
-  useAddMaterialMutation,
-  useDeleteMaterialMutation,
-  useGetMaterialByIdQuery,
-  useGetMaterialsQuery
+  useAddContactsMutation,
+  useDeleteContactsMutation,
+  useGetContactsByIdQuery,
+  useGetContactsQuery
 } = contactsApi;

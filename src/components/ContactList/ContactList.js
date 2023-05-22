@@ -1,22 +1,23 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/operations';
-import { selectIsLoading, selectError, selectFilteredContacts } from 'redux/selectors';
+
 import { RiUserUnfollowFill } from 'react-icons/ri';
-import { DeleteBtn, Item, List } from "./ContactList.styled";
+import { List } from "./ContactList.styled";
+import { Item } from 'components/ContactListItem/ContactListItem.styled';
 
-export const ContactList = () => {
-  const contacts = useSelector(selectFilteredContacts);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+export const ContactList = ({ items, ...otherProps }) => {
 
-  const dispatch = useDispatch();
-
-  const onDeleteContact = (contactId) => {
-    dispatch(deleteContact(contactId));
-  }
   return (
-    <>
-      {!contacts?.length && !error && !isLoading && (
+    <List>
+      {items.map(item => (
+        <Item key={item.key} item={item} {...otherProps} />
+      ))}
+    </List>
+      
+      
+    
+  )
+}
+
+/* {!contacts?.length && !error && !isLoading && (
         <div>Contacts not found</div>
       )}
       {!error && !isLoading && contacts?.length > 0 && (
@@ -32,7 +33,4 @@ export const ContactList = () => {
         </Item>
       ))}
     </List>
-      )}
-    </>
-  )
-}
+      )} */
